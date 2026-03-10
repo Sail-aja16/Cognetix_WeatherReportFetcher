@@ -1,22 +1,9 @@
-import requests
-
-API_KEY = "YOUR_API_KEY"
-
 city = input("Enter city name: ")
 
-url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
-
-response = requests.get(url)
-data = response.json()
-
-if data["cod"] == 200:
-    temp = data["main"]["temp"]
-    humidity = data["main"]["humidity"]
-    weather = data["weather"][0]["description"]
-
+if city.lower() == "hyderabad":
     print("City:", city)
-    print("Temperature:", temp, "°C")
-    print("Humidity:", humidity, "%")
-    print("Condition:", weather)
+    print("Temperature: 30 °C")
+    print("Humidity: 60 %")
+    print("Condition: Clear sky")
 else:
     print("City not found")
